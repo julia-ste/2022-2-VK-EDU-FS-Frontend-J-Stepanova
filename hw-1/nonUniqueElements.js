@@ -25,6 +25,12 @@ nonUniqueElements([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
  */
 
 export default function nonUniqueElements(data) {
-  // your solution goes here
-  return data
+  let counter = new Map();
+
+  data.forEach(elem => {
+    let count = (counter.get(elem) ?? 0) + 1
+    counter.set(elem, count)
+  })
+
+  return data.filter(elem => counter.get(elem) > 1);
 }
