@@ -35,8 +35,10 @@ function validateMessage({userId, text, timestamp, attachments}) {
 }
 
 function renderPage() {
+    data.filter(validateMessage)
+        .forEach((message) => chat.append(createMessageElement(message)));
+
     if (window.localStorage) {
-        saveToLocalStorage(CHAT_KEY, data);
         getFromLocalStorage(CHAT_KEY)
             .filter(validateMessage)
             .forEach((message) => chat.append(createMessageElement(message)));
