@@ -1,0 +1,37 @@
+[
+  {
+    "userId": 1,
+    "text": "Я тут кое-что нарисовала!\nПосмотри как будет время)",
+    "timestamp": 1666379917606,
+    "attachments": []
+  },
+  {
+    "userId": 1,
+    "text": "",
+    "timestamp": 1666379917607,
+    "attachments": [
+      {
+        "type": "image",
+        "src": "https://cdn.dribbble.com/users/4859/screenshots/5235895/alba-shot.png"
+      }
+    ]
+  },
+  {
+    "userId": 1,
+    "text": "Тебе нравится как я нарисовала?",
+    "timestamp": 1666379917608,
+    "attachments": []
+  },
+  {
+    "userId": 0,
+    "text": "Горжусь тобой! Ты крутая!",
+    "timestamp": 1666380917609,
+    "attachments": []
+  },
+  {
+    "userId": 0,
+    "text": "Джен, ты молодец!",
+    "timestamp": 1666380917610,
+    "attachments": []
+  }
+]
