@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Send a message</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="chat.css" rel="stylesheet"></head>
+<body>
+<div class="page-container">
+    <div class="header-container">
+        <button  class="arrow-back-btn action-btn">
+            <i class="material-symbols-outlined">arrow_back</i>
+        </button>
+        <div class="user-info-container">
+            <a href="#">
+                <img
+                        alt=""
+                        class="user-img"
+                        src="https://cdn0.iconfinder.com/data/icons/faces-set-06/64/emo-black-female-1024.png"
+                >
+            </a>
+            <div class="user-info">
+                <a class="user-name" href="#">Дженнифер</a>
+                <div class="user-activity">была 2 часа назад</div>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="search-btn action-btn">
+                <i class="material-symbols-outlined">search</i>
+            </button>
+            <button class="options-btn action-btn">
+                <i class="material-symbols-outlined">more_vert</i>
+            </button>
+            <div class="options">
+                <ul>
+                    <li><a href="#">Info</a></li>
+                    <li><a href="#">Mute</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-container"></div>
+
+    <form action="/" class="form">
+        <input class="form-input" name="msg-text" placeholder="Сообщение" type="text">
+        <button class="attachment-btn" type="button">
+            <i class="material-symbols-outlined">attachment</i>
+        </button>
+    </form>
+</div>
+<script type="text/javascript" src="chat.js"></script></body>
+</html>
