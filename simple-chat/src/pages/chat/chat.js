@@ -1,17 +1,24 @@
-import "./index.css";
-import data from "./mock-data.json";
+import "./chat.css";
+import "_styles/main.css";
+import data from "_assets/chat-history.json";
+import {isCurrentUser, CURRENT_USER_ID} from "_utils/check-user";
 
 const CHAT_KEY = "chat";
-const CURRENT_USER_ID = 0;
 
-const chat = document.querySelector(".chat-body");
+const chat = document.querySelector(".body-container");
 const form = document.querySelector("form");
 const options = document.querySelector(".options");
 const optionsButton = document.querySelector(".options-btn");
+const backButton = document.querySelector(".arrow-back-btn");
 
 form.addEventListener("keypress", handleKeyPress);
 form.addEventListener("submit", handleSubmit);
-optionsButton.addEventListener("click", handleClick);
+optionsButton.addEventListener("click", () => {
+    options.style.display = (options.style.display === "none") ? "block" : "none";
+});
+backButton.addEventListener("click", () => {
+    location.href="index.html"
+});
 
 renderPage();
 
@@ -44,10 +51,6 @@ function renderPage() {
             .forEach((message) => chat.append(createMessageElement(message)));
         scroll();
     }
-}
-
-function isCurrentUser(userId) {
-    return CURRENT_USER_ID === userId;
 }
 
 function formMessage(text) {
@@ -144,8 +147,4 @@ function handleKeyPress(event) {
             form.dispatchEvent(new Event("submit"));
         }
     }
-}
-
-function handleClick() {
-    options.style.display = (options.style.display === "none") ? "block" : "none";
 }
