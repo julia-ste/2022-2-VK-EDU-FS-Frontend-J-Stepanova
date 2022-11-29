@@ -9,8 +9,8 @@ const webpack = require('webpack');
 const SRC_PATH = path.resolve(__dirname, 'src');
 const BUILD_PATH = path.resolve(__dirname, 'build');
 
-const pages = ['chat', 'chats-list'];
-const indexPage = 'chats-list'
+const pages = ['chat', 'chat-list'];
+const indexPage = 'chat-list'
 
 module.exports = {
     context: SRC_PATH,

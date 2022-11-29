@@ -1,4 +1,4 @@
-import "./chats-list.css";
+import "./chat-list.css";
 import "_styles/main.css";
 import data from "_assets/chats-list.json";
 import {isCurrentUser} from "_utils/check-user";
