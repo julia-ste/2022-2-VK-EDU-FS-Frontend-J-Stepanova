@@ -25,7 +25,7 @@
 .chat-img {
     width: 70px;
     height: 70px;
-    margin: 8px 10px;
+    margin: 8px 10px 8px 4px;
     border-radius: 100%;
     background-color: #f0f0f0;
     object-fit: cover;
@@ -41,7 +41,8 @@
     height: 100%;
     text-align: center;
     border-bottom: 1px solid #dbdbdb;
-    padding: 4px
+    padding: 4px;
+    overflow: hidden;
 }
 
 .chat-title {
@@ -57,6 +58,7 @@
     justify-content: space-between;
     align-items: center;
     row-gap: 14px;
+    column-gap: 10px;
     margin-right: 6px;
 }
 
@@ -70,6 +72,7 @@
 .msg-time {
     color: #858585;
     font-size: 14px;
+    white-space: nowrap;
 }
 
 .unread-count {
@@ -78,11 +81,11 @@
     background-color: #8e23aa;
     padding: 4px 6px;
     border-radius: 10px;
+    white-space: nowrap;
 }
 
 .mentioned {
     color: #212121;
-    font-size: 14px;
     background-color: #ffd54f;
 }
 
