@@ -1,0 +1,45 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.actions {
+    @include flexRowSettings($justifyContent: flex-end);
+}
+
+.container {
+    @include flexRowSettings(16px);
+    margin: 0 8px;
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    object-fit: cover;
+    object-position: center;
+    background-color: #f0f0f0;
+}
+
+.info {
+    @include flexColumnSettings(2px);
+    text-align: center;
+}
+
+.title {
+    font-size: $headerTitleFontSize;
+    font-weight: 500;
+    color: $primaryColor;
+    text-decoration: none;
+}
+
+.subtitle {
+    font-size: $headerSubtitleFontSize;
+    color: $primaryColorFadeOut;
+}
+
+.button {
+    @include headerButton;
+}
+
+.icon {
+    @include icon;
+}

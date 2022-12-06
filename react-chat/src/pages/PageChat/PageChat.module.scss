@@ -1,0 +1,10 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.bodyContainer {
+    @include flexColumnSettings(8px);
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px 20px;
+}

@@ -1,0 +1,76 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.chat {
+    @include flexRowSettings;
+    padding: 0 6px;
+    cursor: pointer;
+    transition: all 0.7s cubic-bezier(0, 0.7, 0.26, 0.99);
+
+    &:hover {
+        background-color: $chatHoverColor;
+    }
+
+    &:active {
+        background-color: $chatActiveColor;
+    }
+}
+
+.img {
+    width: 70px;
+    height: 70px;
+    margin: 8px 10px 8px 4px;
+    border-radius: 100%;
+    background-color: #f0f0f0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.content {
+    @include flexColumnSettings(6px, $justifyContent: center);
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 4px;
+    overflow: hidden;
+}
+
+.title {
+    color: $contrastColor;
+    font-size: $header1FontSize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.row {
+    @include flexRowSettings(10px, 14px, $justifyContent: space-between);
+    margin-right: 6px;
+}
+
+.text {
+    color: $metadataColor;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.time {
+    color: $metadataColor;
+    font-size: $metadataFontSize;
+    white-space: nowrap;
+}
+
+.unreadCount {
+    color: $primaryColor;
+    font-size: $metadataFontSize;
+    background-color: $themeColor;
+    padding: 4px 6px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+.iconDone {
+    @include iconDone($header1FontSize + 2px);
+}

@@ -1,0 +1,14 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.bodyContainer {
+    @include flexColumnSettings;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.createButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

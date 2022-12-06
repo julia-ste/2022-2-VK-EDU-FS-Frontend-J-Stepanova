@@ -1,0 +1,42 @@
+$fontFamily: Helvetica, Arial, sans-serif;
+
+$header1FontSize: 20px;
+$fontSize: 18px;
+
+$primaryColor: #ffffff;
+$primaryColorDarken: darken($primaryColor, 15%);
+$primaryColorFadeOut: fade-out($primaryColor, 0.4);
+
+$contrastColor: #333333;
+
+$metadataFontSize: 14px;
+$metadataColor: #7a7a7c;
+
+$pageBackgroundColor: #f5f5f5;
+
+$themeColor: #8e23a9;
+$themeColorDarken: darken($themeColor, 8%);
+
+$secondaryThemeColor: #ffd54f;
+
+$createButtonSize: 75px;
+$createButtonBackgroundColor: $secondaryThemeColor;
+$createButtonColor: darken($createButtonBackgroundColor, 40%);
+$createButtonEffectsColor: #ffffff;
+
+$messageBackgroundColor: #ffffff;
+$messageFromMeBackgroundColor: lighten(desaturate($themeColor, 20%), 53%);
+
+$messageFormHeight: 60px;
+$messageFormBackgroundColor: #ffffff;
+$attachmentButtonColor: #657786;
+
+$headerHeight: 70px;
+$headerColor: $primaryColor;
+$headerHoverColor: $primaryColor;
+$headerBackgroundColor: $themeColor;
+$headerTitleFontSize: 22px;
+$headerSubtitleFontSize: 12px;
+
+$chatHoverColor: #eaeaea;
+$chatActiveColor: #e0e0e0;

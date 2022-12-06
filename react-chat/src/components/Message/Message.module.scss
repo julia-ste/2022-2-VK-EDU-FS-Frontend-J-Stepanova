@@ -1,0 +1,102 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.iconDone {
+    @include iconDone($metadataFontSize + 4px);
+}
+
+.content {
+    @include flexColumnSettings;
+    word-wrap: break-word;
+    white-space: pre-line;
+    padding: 4px;
+}
+
+.bubble {
+    min-width: MIN(15vw, 100px);
+    max-width: MIN(80vw, 400px);
+    position: relative;
+    border-radius: 4px;
+    filter: drop-shadow(0 0 1px #a9aaad);
+}
+
+.left {
+    align-self: flex-start;
+    background-color: $messageBackgroundColor;
+    border-bottom-left-radius: 0;
+    animation: slide-in-from-left 0.5s ease;
+}
+
+.left:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    border-style: solid;
+    border-width: 10px 10px 0 0;
+    border-color: transparent $messageBackgroundColor transparent transparent;
+}
+
+.right {
+    align-self: flex-end;
+    background-color: $messageFromMeBackgroundColor;
+    border-bottom-right-radius: 0;
+    animation: slide-in-from-right 0.5s ease;
+}
+
+.right:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+    border-style: solid;
+    border-width: 0 10px 10px 0;
+    border-color: transparent transparent $messageFromMeBackgroundColor
+        transparent;
+}
+
+.media {
+    @include flexColumnSettings(4px, 4px);
+}
+
+.img {
+    height: auto;
+    width: auto;
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.text {
+    margin: 8px 18px 4px 8px;
+}
+
+.meta {
+    @include flexRowSettings(4px);
+    align-self: flex-end;
+    font-size: $metadataFontSize;
+    margin-right: 6px;
+}
+
+.time {
+    color: $metadataColor;
+}
+
+@keyframes slide-in-from-left {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-from-right {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

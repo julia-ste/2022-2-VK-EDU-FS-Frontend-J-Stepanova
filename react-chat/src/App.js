@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Page } from 'common/constants'
+import PageChat from 'pages/PageChat'
+import PageChatList from 'pages/PageChatList'
+
+import './App.css'
+
+
+class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = { page: Page.ChatList }
+    }
+
+    handlePageRedirect(newPage) {
+        this.setState({ page: newPage })
+    }
+
+    render() {
+        return (
+            <div className="App">
+                {this.state.page === Page.ChatList && (
+                    <PageChatList
+                        handlePageRedirect={this.handlePageRedirect.bind(this)}
+                    />
+                )}
+                {this.state.page === Page.Chat && (
+                    <PageChat
+                        handlePageRedirect={this.handlePageRedirect.bind(this)}
+                    />
+                )}
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App

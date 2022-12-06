@@ -1,0 +1,33 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.form {
+    display: flex;
+    height: $messageFormHeight;
+    border-top: 1px solid #dbdbdb;
+    padding: 0 20px;
+    background-color: $messageFormBackgroundColor;
+}
+
+.input {
+    flex: 1;
+    font-size: $fontSize;
+    border: none;
+    outline: none;
+}
+
+.button {
+    cursor: pointer;
+    border: none;
+    background-color: $messageFormBackgroundColor;
+    color: $attachmentButtonColor;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.icon {
+    @include icon;
+}
