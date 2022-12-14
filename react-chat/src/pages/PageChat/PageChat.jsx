@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import chatHistory from 'assets/chatHistory.json'
 import chatList from 'assets/chatList.json'
@@ -13,6 +13,18 @@ import styles from './PageChat.module.scss'
 
 const PageChat = ({ handlePageRedirect }) => {
     const [messages, setMessages] = useLocalStorage('chat', chatHistory)
+    const massagesRef = useRef(null)
+
+    useEffect(() => {
+        scrollToBottom()
+    }, [messages])
+
+    const scrollToBottom = () => {
+        massagesRef.current.scroll({
+            top: massagesRef.current.scrollHeight,
+            left: 0,
+        })
+    }
 
     const handleSubmit = text => {
         const newMessage = {
@@ -36,7 +48,7 @@ const PageChat = ({ handlePageRedirect }) => {
                 onArrowBackClick={() => handlePageRedirect(Page.ChatList)}
             />
 
-            <div className={styles.bodyContainer}>
+            <div className={styles.bodyContainer} ref={massagesRef}>
                 {messages.map(
                     ({ id, isFromMe, text, timestamp, attachments }) => (
                         <Message
