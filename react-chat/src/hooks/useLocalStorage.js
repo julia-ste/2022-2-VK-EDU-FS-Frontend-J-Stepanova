@@ -22,7 +22,7 @@ export function useLocalStorage(key, initial) {
 
     useEffect(() => {
         setLocalStorageValue(key, value)
-    }, [value])
+    }, [value, key])
 
     return [value, setValue]
 }

@@ -11,11 +11,11 @@ const PageChatHeader = ({ title, subtitle, imgSrc, onArrowBackClick }) => (
             <ArrowBack className={styles.icon} />
         </button>
         <div className={styles.container}>
-            <a href="#">
+            <a href="/#">
                 <img alt="" className={styles.img} src={imgSrc} />
             </a>
             <div className={styles.info}>
-                <a className={styles.title} href="#">
+                <a className={styles.title} href="/#">
                     {title}
                 </a>
                 <div className={styles.subtitle}>{subtitle}</div>
