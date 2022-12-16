@@ -1,0 +1,48 @@
+[
+  {
+    "id": 0,
+    "isFromMe": false,
+    "author": "Дженнифер",
+    "text": "Я тут кое-что нарисовала!\nПосмотри как будет время)",
+    "timestamp": 1666379917606,
+    "attachments": []
+  },
+  {
+    "id": 1,
+    "isFromMe": false,
+    "author": "Дженнифер",
+    "text": "",
+    "timestamp": 1666379917607,
+    "attachments": [
+      {
+        "id": 0,
+        "type": "image",
+        "src": "https://cdn.dribbble.com/users/4859/screenshots/5235895/alba-shot.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "isFromMe": false,
+    "author": "Дженнифер",
+    "text": "Тебе нравится как я нарисовала?",
+    "timestamp": 1666379917608,
+    "attachments": []
+  },
+  {
+    "id": 3,
+    "isFromMe": true,
+    "author": "Дженнифер",
+    "text": "Горжусь тобой! Ты крутая!",
+    "timestamp": 1666380917609,
+    "attachments": []
+  },
+  {
+    "id": 4,
+    "isFromMe": true,
+    "author": "Дженнифер",
+    "text": "Джен, ты молодец!",
+    "timestamp": 1666380917610,
+    "attachments": []
+  }
+]

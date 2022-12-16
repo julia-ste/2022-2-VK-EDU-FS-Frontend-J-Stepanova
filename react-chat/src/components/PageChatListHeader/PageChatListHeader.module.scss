@@ -1,0 +1,17 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.title {
+    font-size: $headerTitleFontSize;
+    font-weight: 500;
+    color: $primaryColor;
+    text-align: center;
+}
+
+.button {
+    @include headerButton;
+}
+
+.icon {
+    @include icon;
+}

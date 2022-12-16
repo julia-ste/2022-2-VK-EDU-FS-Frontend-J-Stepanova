@@ -1,0 +1,29 @@
+@import './common/styles/mixins.module';
+@import './common/styles/vars.module';
+
+html,
+body {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    background-color: $pageBackgroundColor;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    color: $contrastColor;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+input[type='submit'] {
+    visibility: collapse;
+}
+
+body > #root {
+    height: 100%;
+    min-height: 100%;
+}

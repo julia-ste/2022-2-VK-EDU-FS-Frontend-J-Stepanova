@@ -1,0 +1,61 @@
+@import './vars.module';
+
+@mixin icon {
+    vertical-align: middle;
+}
+
+@mixin iconDone($fontSize) {
+    vertical-align: middle;
+    color: $themeColor;
+    font-size: $fontSize;
+    line-height: $fontSize;
+}
+
+@mixin headerButton {
+    height: $headerHeight;
+    width: MIN(15vw, $headerHeight);
+    padding: 0;
+    border: none;
+    color: $primaryColor;
+    background-color: $themeColor;
+    cursor: pointer;
+    transition: all 0.4s ease;
+
+    &:active {
+        background-color: $themeColorDarken;
+    }
+
+    &:hover {
+        color: $primaryColorDarken;
+    }
+}
+
+@mixin flexColumnSettings(
+    $rowGap: normal,
+    $columnGap: normal,
+    $direction: column,
+    $justifyContent: flex-start,
+    $alignItems: stretch
+) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    row-gap: $rowGap;
+    column-gap: $columnGap;
+}
+
+@mixin flexRowSettings(
+    $columnGap: normal,
+    $rowGap: normal,
+    $direction: row,
+    $justifyContent: center,
+    $alignItems: center
+) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    column-gap: $columnGap;
+    row-gap: $rowGap;
+}

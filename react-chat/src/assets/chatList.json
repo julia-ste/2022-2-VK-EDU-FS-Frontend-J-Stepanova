@@ -1,0 +1,98 @@
+[
+  {
+    "id": 0,
+    "title": "Дженнифер Эшли",
+    "imgSrc": "https://cdn0.iconfinder.com/data/icons/faces-set-06/64/emo-black-female-1024.png",
+    "unreadCount": 99,
+    "lastMsg": {
+      "isFromMe": false,
+      "text": "Ты куда пропал?",
+      "timestamp": 1666379917606,
+      "attachments": [],
+      "isRead": true
+    }
+  },
+  {
+    "id": 1,
+    "title": "Общество целых бокалов",
+    "imgSrc": "https://blog.comfy.ua/wp-content/uploads/2018/11/Raznyie-bokalyi.jpg",
+    "unreadCount": 0,
+    "lastMsg": {
+      "isFromMe": true,
+      "text": "Ребят, без меня сегодня :(",
+      "timestamp": 1666379917606,
+      "attachments": [],
+      "isRead": true
+    }
+  },
+  {
+    "id": 2,
+    "title": "Антон Иванов",
+    "imgSrc": "https://pedsovet.org/v3/upload/ckeditor/8/images/2019-12-12/1576161992_173_oooo.plus.jpg",
+    "unreadCount": 0,
+    "lastMsg": {
+      "isFromMe": true,
+      "text": "Тоха, ты где?",
+      "timestamp": 1666379917606,
+      "attachments": [],
+      "isRead": true
+    }
+  },
+  {
+    "id": 3,
+    "title": "Серёга (должен 2000Р)",
+    "imgSrc": "https://cdn1.iconfinder.com/data/icons/diversity-avatars-volume-01-circles/64/hiphop-man-white-1024.png",
+    "unreadCount": 0,
+    "lastMsg": {
+      "isFromMe": true,
+      "text": "Серёг, это Петя. Где бабло моё?",
+      "timestamp": 1666379917606,
+      "attachments": [],
+      "isRead": true
+    }
+  },
+  {
+    "id": 4,
+    "title": "Общество разбитых бокалов",
+    "imgSrc": "https://primetytut.ru/wp-content/uploads/2018/02/razbityy-bokal-s-vinom.jpg",
+    "unreadCount": 99,
+    "lastMsg": {
+      "isFromMe": false,
+      "text": "Петька, ты с нами сегодня?",
+      "timestamp": 1666379917606,
+      "attachments": [],
+      "isRead": true
+    }
+  },
+  {
+    "id": 5,
+    "title": "Сэм с Нижнего",
+    "imgSrc": "https://cdn1.iconfinder.com/data/icons/diversity-avatars-volume-01-v2/64/hipster-man-white-1024.png",
+    "unreadCount": 0,
+    "lastMsg": {
+      "isFromMe": true,
+      "text": "",
+      "timestamp": 1666379917606,
+      "attachments": [
+        {
+          "type": "image",
+          "name": "img_12-12-09"
+        }
+      ],
+      "isRead": false
+    }
+  },
+  {
+    "id": 6,
+    "title": "Айрат работа",
+    "imgSrc": "https://cdn3.iconfinder.com/data/icons/diversity-avatars/64/hipster-beanie-man-asian-1024.png",
+    "unreadCount": 0,
+    "lastMsg": {
+      "isFromMe": true,
+      "text": "Айрат, во сколько приедешь?",
+      "timestamp": 1666379917606,
+      "attachments": [],
+      "isRead": false
+    }
+  }
+]

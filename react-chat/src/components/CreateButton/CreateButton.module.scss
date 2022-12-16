@@ -1,0 +1,62 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.button {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    width: $createButtonSize;
+    height: $createButtonSize;
+    border-radius: 100%;
+    border: none;
+    background-color: $createButtonBackgroundColor;
+    color: $createButtonColor;
+    cursor: pointer;
+    padding: 0;
+    transition: all 500ms;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        box-shadow: 0 0 0 2px $createButtonEffectsColor inset;
+        clip: rect(0, $createButtonSize, 0, 0);
+        transition: all 300ms;
+    }
+
+    &:hover {
+        transform: rotate(10deg);
+        animation: pulse 3s infinite cubic-bezier(0.25, 0, 0, 1);
+    }
+
+    &:hover:after {
+        clip: rect(0, $createButtonSize, $createButtonSize, 0);
+    }
+
+    &:active {
+        box-shadow: 0 0 0 2px $createButtonEffectsColor,
+            0 10px 4px rgba($createButtonEffectsColor, 0.7),
+            0 0 0 10px rgba($createButtonEffectsColor, 0.2);
+        transform: scale(0.85);
+        animation: none;
+    }
+
+    &:active:after {
+        box-shadow: 0 0 0 10px rgba($createButtonEffectsColor, 0.15) inset;
+    }
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0 $createButtonEffectsColor;
+    }
+    to {
+        box-shadow: 0 0 0 18px rgba($createButtonEffectsColor, 0);
+    }
+}
+
+.icon {
+    @include icon;
+}
