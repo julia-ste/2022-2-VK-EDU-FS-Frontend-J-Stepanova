@@ -1,0 +1,10 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.form {
+    @include flexColumnSettings(40px, $alignItems: stretch);
+}
+
+.img {
+    align-self: center;
+}
