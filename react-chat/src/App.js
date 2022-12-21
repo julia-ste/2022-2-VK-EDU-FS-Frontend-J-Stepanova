@@ -1,36 +1,25 @@
 import React from 'react'
+import { Route, HashRouter as Router, Routes } from 'react-router-dom'
 
-import { Page } from 'common/constants'
 import PageChat from 'pages/PageChat'
 import PageChatList from 'pages/PageChatList'
+import PageUserProfile from 'pages/PageUserProfile'
 
 import './App.css'
 
 
 class App extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { page: Page.ChatList }
-    }
-
-    handlePageRedirect(newPage) {
-        this.setState({ page: newPage })
-    }
-
     render() {
         return (
-            <div className="App">
-                {this.state.page === Page.ChatList && (
-                    <PageChatList
-                        handlePageRedirect={this.handlePageRedirect.bind(this)}
-                    />
-                )}
-                {this.state.page === Page.Chat && (
-                    <PageChat
-                        handlePageRedirect={this.handlePageRedirect.bind(this)}
-                    />
-                )}
-            </div>
+            <Router>
+                <div className="App">
+                    <Routes>
+                        <Route path="/" element={<PageChatList />} />
+                        <Route path="/chat/:id" element={<PageChat />} />
+                        <Route path="/profile" element={<PageUserProfile />} />
+                    </Routes>
+                </div>
+            </Router>
         )
     }
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom'
 
 import chatHistory from 'assets/chatHistory.json'
 import chatList from 'assets/chatList.json'
@@ -11,8 +12,9 @@ import { useLocalStorage } from 'hooks/useLocalStorage'
 import styles from './PageChat.module.scss'
 
 
-const PageChat = ({ handlePageRedirect }) => {
-    const [messages, setMessages] = useLocalStorage('chat', chatHistory)
+const PageChat = () => {
+    const { id } = useParams()
+    const [messages, setMessages] = useLocalStorage(`chat_${id}`, chatHistory)
     const massagesRef = useRef(null)
 
     useEffect(() => {
@@ -45,7 +47,6 @@ const PageChat = ({ handlePageRedirect }) => {
                 title="Дженнифер"
                 subtitle="была 2 часа назад"
                 imgSrc={chatList[0].imgSrc}
-                onArrowBackClick={() => handlePageRedirect(Page.ChatList)}
             />
 
             <div className={styles.bodyContainer} ref={massagesRef}>

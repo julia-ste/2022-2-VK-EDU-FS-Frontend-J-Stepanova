@@ -1,20 +1,28 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { Menu, Search } from '@mui/icons-material'
 
 import styles from './PageChatListHeader.module.scss'
 
 
-const PageChatListHeader = () => (
-    <>
-        <button className={styles.button}>
-            <Menu className={styles.icon} />
-        </button>
-        <h1 className={styles.title}>Messenger</h1>
-        <button className={styles.button}>
-            <Search className={styles.icon} />
-        </button>
-    </>
-)
+const PageChatListHeader = () => {
+    const navigate = useNavigate()
+
+    return (
+        <>
+            <button
+                className={styles.button}
+                onClick={() => navigate('/profile')}
+            >
+                <Menu className={styles.icon} />
+            </button>
+            <h1 className={styles.title}>Messenger</h1>
+            <button className={styles.button}>
+                <Search className={styles.icon} />
+            </button>
+        </>
+    )
+}
 
 export default PageChatListHeader

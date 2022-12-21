@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import chatList from 'assets/chatList.json'
 import { Page } from 'common/constants'
@@ -9,8 +10,9 @@ import HeaderWrapper from 'components/HeaderWrapper'
 import styles from './PageChatList.module.scss'
 
 
-const PageChatList = ({ handlePageRedirect }) => {
+const PageChatList = () => {
     const [chats] = useState(chatList)
+    const navigate = useNavigate()
 
     return (
         <>
@@ -24,7 +26,7 @@ const PageChatList = ({ handlePageRedirect }) => {
                         imgSrc={imgSrc}
                         unreadCount={unreadCount}
                         lastMsg={lastMsg}
-                        onClick={() => handlePageRedirect(Page.Chat)}
+                        onClick={() => navigate(`/chat/${id}`)}
                     />
                 ))}
                 <div className={styles.createButton}>

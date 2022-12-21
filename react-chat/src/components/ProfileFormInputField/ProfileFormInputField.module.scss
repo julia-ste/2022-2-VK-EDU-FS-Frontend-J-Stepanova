@@ -1,0 +1,44 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.field {
+    padding: 8px 20px 0;
+    border-bottom: 3px solid $profileFormBorderColor;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: $profileFormBackgroundColor;
+}
+
+.input {
+    border: none;
+    width: 100%;
+    outline: 0;
+    padding: 2px 0 8px;
+    background-color: $profileFormBackgroundColor;
+    font-size: $fontSize;
+    font-family: $fontFamily;
+}
+
+.textarea {
+    border: none;
+    width: 100%;
+    outline: 0;
+    padding: 2px 0 8px;
+    background-color: $profileFormBackgroundColor;
+    resize: none;
+    font-size: $fontSize;
+    font-family: $fontFamily;
+}
+
+.label {
+    color: $profileFormLabelColor;
+    font-size: $profileFormLabelFontSize;
+}
+
+.error {
+    margin: 4px 4px 4px 20px;
+    color: $errorColor;
+    font-size: $profileFormLabelFontSize;
+    line-height: $profileFormLabelFontSize;
+    min-height: $profileFormLabelFontSize;
+}

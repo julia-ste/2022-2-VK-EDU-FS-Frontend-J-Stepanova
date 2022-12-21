@@ -1,0 +1,14 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.bodyContainer {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px;
+    background-color: $primaryColor;
+}
+
+.form {
+    max-width: 600px;
+    margin: 0 auto;
+}
