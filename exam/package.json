@@ -20,6 +20,7 @@
     "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://julia-ste.github.io/2022-2-VK-EDU-FS-Frontend-J-Stepanova/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
