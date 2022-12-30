@@ -1,25 +1,21 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 
-const SelectDropDown = ({ options, initialOption, handleChange }) => {
-    const [selectedOption, setSelectedOption] = useState(initialOption)
+import styles from './SelectDropDown.module.scss'
 
-    const onChange = useCallback(
-        e => {
-            setSelectedOption(e.target.value)
-            handleChange(e.target.value)
-        },
-        [handleChange],
-    )
 
-    return (
-        <select value={selectedOption} size={1} onChange={onChange}>
-            {options.map(({ value, label }, id) => (
-                <option key={id} value={value}>
-                    {label}
-                </option>
-            ))}
-        </select>
-    )
-}
+const SelectDropDown = ({ options, selectedValue, onChange }) => (
+    <select
+        className={styles.select}
+        value={selectedValue}
+        size={1}
+        onChange={e => onChange(e.target.value)}
+    >
+        {options.map(({ value, label }, id) => (
+            <option key={id} value={value}>
+                {label}
+            </option>
+        ))}
+    </select>
+)
 
 export default SelectDropDown

@@ -1,36 +1,44 @@
+import React from 'react'
+
+import { Close } from '@mui/icons-material'
+import SelectDropDown from 'components/SelectDropDown'
+
 import styles from './TextBox.module.scss'
-import { useState } from 'react'
 
 
-const TextBox = ({ initialText, languages, disabled, placeholder, onSubmit }) => {
-    const [text, setText] = useState(initialText)
-
-    const handleSubmit = e => {
-        e.preventDefault()
-        onSubmit(text)
-    }
-
-    return (
-        <form className={styles.form} onSubmit={handleSubmit}>
-            <SelectDropDown
-                options={languages}
-                initialOption={initialSortType}
-                handleChange={sortComments}
-            />
+const TextBox = ({
+    languages,
+    selectedLanguage,
+    text,
+    disabled,
+    placeholder,
+    onTextChange,
+    onLanguageChange,
+    onDeleteClick,
+}) => (
+    <div className={styles.box}>
+        <SelectDropDown
+            options={languages}
+            selectedValue={selectedLanguage}
+            onChange={onLanguageChange}
+        />
+        <div className={styles.inputContainer}>
             <textarea
                 className={styles.textarea}
                 disabled={disabled}
                 placeholder={placeholder}
-                onChange={e => setTextToTranslate(e.target.value)}
-                value={}
+                value={text}
+                {...(onTextChange && {
+                    onChange: e => onTextChange(e.target.value),
+                })}
             />
-            {!disabled && (
-                <div className={styles.delete} onClick={() => setText('')}>
-                    ˟
-                </div>
+            {!disabled && text.length && (
+                <button className={styles.deleteButton} onClick={onDeleteClick}>
+                    <Close className={styles.icon} />
+                </button>
             )}
-        </form>
-    )
-}
+        </div>
+    </div>
+)
 
 export default TextBox

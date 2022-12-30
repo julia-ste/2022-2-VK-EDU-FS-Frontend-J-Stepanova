@@ -2,7 +2,7 @@ import {
     GET_LANGUAGES_FAILURE,
     GET_LANGUAGES_REQUEST,
     GET_LANGUAGES_SUCCESS,
-} from '../constants/ActionTypes'
+} from 'constants/ActionTypes'
 
 const initialState = {
     loading: false,
@@ -10,7 +10,7 @@ const initialState = {
     error: '',
 }
 
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_LANGUAGES_REQUEST:
             return {
@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
         case GET_LANGUAGES_SUCCESS:
             return {
                 loading: false,
-                languages: [...state.languages, ...action.payload],
+                languages: action.payload,
                 error: '',
             }
         case GET_LANGUAGES_FAILURE:
@@ -33,3 +33,5 @@ export default (state = initialState, action) => {
             return state
     }
 }
+
+export default reducer

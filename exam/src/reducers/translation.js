@@ -2,7 +2,7 @@ import {
     GET_TRANSLATION_FAILURE,
     GET_TRANSLATION_REQUEST,
     GET_TRANSLATION_SUCCESS,
-} from '../constants/ActionTypes'
+} from 'constants/ActionTypes'
 
 const initialState = {
     loading: false,
@@ -11,27 +11,29 @@ const initialState = {
     error: '',
 }
 
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_TRANSLATION_REQUEST:
             return {
                 ...state,
                 loading: true,
+                text: action.payload,
             }
         case GET_TRANSLATION_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 translation: action.payload,
-                error: '',
             }
         case GET_TRANSLATION_FAILURE:
             return {
+                ...state,
                 loading: false,
-                translation: state.translation,
                 error: action.payload,
             }
         default:
             return state
     }
 }
+
+export default reducer
