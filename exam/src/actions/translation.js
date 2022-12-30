@@ -30,7 +30,7 @@ export const getTranslation = (text, toLanguage) => async dispatch => {
                 'df5ffa97f3mshfa5277882376ad1p1db7b7jsnb69ba524116a',
             'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
         },
-        body: `[{"Text":"${text}"}]`,
+        body: JSON.stringify([{ Text: text }]),
     }
 
     return fetch(
