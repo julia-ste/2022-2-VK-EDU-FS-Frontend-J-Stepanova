@@ -1,0 +1,46 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.inputContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.textarea {
+    background-color: transparent;
+    border: none;
+    resize: none;
+    padding: 10px 50px 14px 14px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    outline: none;
+    overflow: auto;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.deleteButton {
+    position: absolute;
+    top: 9%;
+    right: 3%;
+    padding: 0;
+    border: none;
+    background-color: #ffffff;
+    color: #7f858a;
+    cursor: pointer;
+
+    &:hover {
+        color: #64686d;
+    }
+}
+
+.icon {
+    vertical-align: middle;
+}
