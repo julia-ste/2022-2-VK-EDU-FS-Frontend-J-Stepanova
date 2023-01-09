@@ -18,11 +18,13 @@ import styles from './PageChat.module.scss'
 
 
 const mapStateToProps = state => ({
+    userId: state.auth.userId,
     chat: state.messages.chat,
     messages: state.messages.messages,
 })
 
 const PageChat = ({
+    userId,
     chat,
     messages,
     getMessages,
@@ -30,7 +32,6 @@ const PageChat = ({
     sendMessage,
     addMessage,
 }) => {
-    const userId = JSON.parse(localStorage.getItem('userId')) || 3
     const { id } = useParams()
     const massagesRef = useRef(null)
     const [centrifugeIsConnected, subscribe, unsubscribe] =

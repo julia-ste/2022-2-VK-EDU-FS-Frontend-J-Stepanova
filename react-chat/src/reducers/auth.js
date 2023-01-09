@@ -8,6 +8,7 @@ import {
 
 const initialState = {
     loading: false,
+    userId: null,
     token: null,
     error: '',
 }
@@ -15,9 +16,9 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_AUTH_DATA:
-            console.log(action.payload)
             return {
                 ...state,
+                userId: action.payload.userId,
                 token: action.payload.token,
             }
         case LOGIN_GOOGLE_REQUEST:
@@ -29,7 +30,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                token: action.payload,
+                userId: action.payload.userId,
+                token: action.payload.token,
                 error: '',
             }
         case LOGIN_GOOGLE_FAILURE:
@@ -41,6 +43,7 @@ const reducer = (state = initialState, action) => {
         case LOGOUT:
             return {
                 ...state,
+                userId: null,
                 token: null,
                 error: '',
             }

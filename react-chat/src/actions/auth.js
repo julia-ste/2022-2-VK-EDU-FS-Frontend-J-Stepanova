@@ -30,9 +30,9 @@ const loginGoogleStarted = () => ({
     type: LOGIN_GOOGLE_REQUEST,
 })
 
-const loginGoogleSuccess = token => ({
+const loginGoogleSuccess = data => ({
     type: LOGIN_GOOGLE_SUCCESS,
-    payload: token,
+    payload: data,
 })
 
 const loginGoogleFailure = message => ({
@@ -50,11 +50,14 @@ export const loginGoogle = accessToken => {
                 access_token: accessToken,
             })
             .then(response => {
-                const token = response.data.token
+                const data = response.data
                 if (typeof window !== 'undefined') {
-                    window.localStorage.setItem(key, JSON.stringify({ token }))
+                    window.localStorage.setItem(
+                        key,
+                        JSON.stringify({ ...data }),
+                    )
                 }
-                dispatch(loginGoogleSuccess(token))
+                dispatch(loginGoogleSuccess(data))
             })
             .catch(error => dispatch(loginGoogleFailure(error)))
     }

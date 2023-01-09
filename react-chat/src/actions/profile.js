@@ -24,13 +24,18 @@ const getProfileFailure = message => ({
 })
 
 export const getProfile = () => {
-    return dispatch => {
+    return (dispatch, getState) => {
         dispatch(getProfileStarted())
 
-        const id = JSON.parse(localStorage.getItem('userId')) || 3
+        const userId = getState().auth.userId
+        const token = getState().auth.token
 
         axios
-            .get(`/users/${id}/`)
+            .get(`/users/${userId}/`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
             .then(response => dispatch(getProfileSuccess(response.data)))
             .catch(error => dispatch(getProfileFailure(error)))
     }
@@ -62,13 +67,18 @@ const updateProfileFailure = message => ({
 })
 
 export const updateProfile = data => {
-    return dispatch => {
+    return (dispatch, getState) => {
         dispatch(updateProfileStarted())
 
-        const id = JSON.parse(localStorage.getItem('userId')) || 3
+        const userId = getState().auth.userId
+        const token = getState().auth.token
 
         axios
-            .put(`/users/${id}/`, data)
+            .put(`/users/${userId}/`, data, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
             .then(response => dispatch(updateProfileSuccess(response.data)))
             .catch(error => dispatch(updateProfileFailure(error)))
     }

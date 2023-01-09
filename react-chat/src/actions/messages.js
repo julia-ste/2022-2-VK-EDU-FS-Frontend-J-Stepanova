@@ -10,8 +10,7 @@ import {
     SEND_MESSAGE_REQUEST,
     SEND_MESSAGE_SUCCESS,
 } from 'constants/MessagesActionTypes'
-
-import { getCurrentDateTime } from '../utils/time'
+import { getCurrentDateTime } from 'utils/time'
 
 const getMessagesStarted = () => ({
     type: GET_MESSAGES_REQUEST,
@@ -28,11 +27,17 @@ const getMessagesFailure = message => ({
 })
 
 export const getMessages = chatId => {
-    return dispatch => {
+    return (dispatch, getState) => {
         dispatch(getMessagesStarted())
 
+        const token = getState().auth.token
+
         axios
-            .get(`/chats/${chatId}/messages/`)
+            .get(`/chats/${chatId}/messages/`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
             .then(response => dispatch(getMessagesSuccess(response.data)))
             .catch(error => dispatch(getMessagesFailure(error)))
     }
@@ -53,7 +58,7 @@ const sendMessageFailure = message => ({
 })
 
 export const sendMessage = (chatId, text) => {
-    return dispatch => {
+    return (dispatch, getState) => {
         dispatch(sendMessageStarted())
 
         const newMessage = {
@@ -61,8 +66,14 @@ export const sendMessage = (chatId, text) => {
             sentAt: getCurrentDateTime(),
         }
 
+        const token = getState().auth.token
+
         axios
-            .post(`/chats/${chatId}/messages/new/`, newMessage)
+            .post(`/chats/${chatId}/messages/new/`, newMessage, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
             .then(response => dispatch(sendMessageSuccess(response.data)))
             .catch(error => dispatch(sendMessageFailure(error)))
     }
@@ -89,11 +100,17 @@ const getChatDetailFailure = message => ({
 })
 
 export const getChatDetail = chatId => {
-    return dispatch => {
+    return (dispatch, getState) => {
         dispatch(getChatDetailStarted())
 
+        const token = getState().auth.token
+
         axios
-            .get(`/chats/${chatId}/`)
+            .get(`/chats/${chatId}/`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
             .then(response => dispatch(getChatDetailSuccess(response.data)))
             .catch(error => dispatch(getChatDetailFailure(error)))
     }

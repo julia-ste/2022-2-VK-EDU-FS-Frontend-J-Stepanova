@@ -20,11 +20,17 @@ const getChatsFailure = message => ({
 })
 
 export const getChats = () => {
-    return dispatch => {
+    return (dispatch, getState) => {
         dispatch(getChatsStarted())
 
+        const token = getState().auth.token
+
         axios
-            .get('/chats/')
+            .get('/chats/', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
             .then(response => dispatch(getChatsSuccess(response.data)))
             .catch(error => dispatch(getChatsFailure(error)))
     }
