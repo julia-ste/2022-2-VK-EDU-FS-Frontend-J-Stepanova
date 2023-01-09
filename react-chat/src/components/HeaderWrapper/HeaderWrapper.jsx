@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Page } from 'common/constants'
 import PageChatHeader from 'components/PageChatHeader'
 import PageChatListHeader from 'components/PageChatListHeader'
 import PageUserProfileHeader from 'components/PageUserProfileHeader'
+import { Page } from 'constants/Pages'
 
 import styles from './HeaderWrapper.module.scss'
 

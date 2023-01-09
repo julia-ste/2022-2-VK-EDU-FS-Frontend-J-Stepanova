@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import axios from 'api/axios'
-import { Page } from 'common/constants'
+import { getChats } from 'actions/chats'
 import Chat from 'components/Chat'
 import CreateButton from 'components/CreateButton'
 import HeaderWrapper from 'components/HeaderWrapper'
+import { Page } from 'constants/Pages'
 
 import styles from './PageChatList.module.scss'
 
 
-const PageChatList = () => {
-    const [chats, setChats] = useState([])
+const mapStateToProps = state => ({
+    chats: state.chats.chats,
+})
+
+const PageChatList = ({ chats, getChats }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios
-            .get('/chats/')
-            .then(response => setChats(response.data))
-            .catch(error => console.log('Error:', error.message))
+        getChats()
     }, [])
 
     return (
@@ -44,4 +45,4 @@ const PageChatList = () => {
     )
 }
 
-export default PageChatList
+export default connect(mapStateToProps, { getChats })(PageChatList)

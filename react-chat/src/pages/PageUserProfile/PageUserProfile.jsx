@@ -1,42 +1,34 @@
 import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import axios from 'api/axios'
-import { Page } from 'common/constants'
+import { getProfile, updateProfile } from 'actions/profile'
 import HeaderWrapper from 'components/HeaderWrapper'
 import ProfileForm from 'components/ProfileForm'
+import { Page } from 'constants/Pages'
 
 import styles from './PageUserProfile.module.scss'
 
 
-const PageUserProfile = () => {
-    const userId = JSON.parse(localStorage.getItem('userId')) || 3
-    const [loading, setLoading] = useState(true)
-    const [profile, setProfile] = useState({})
+const mapStateToProps = state => ({
+    loading: state.profile.loading,
+    profile: state.profile.profile,
+})
+
+const PageUserProfile = ({ loading, profile, getProfile, updateProfile }) => {
     const [submitRequested, setSubmitRequested] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
-        axios
-            .get(`/users/${userId}/`)
-            .then(response =>
-                setLoading(() => {
-                    setProfile(response.data)
-                    return false
-                }),
-            )
-            .catch(error => console.log('Error:', error.message))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        getProfile()
     }, [])
 
     const handleSubmit = ({ hasErrors, payload }) => {
         if (hasErrors) {
             setSubmitRequested(false)
         } else {
-            axios
-                .put(`/users/${userId}/`, payload)
-                .then(() => navigate('/'))
-                .catch(error => console.log('Error:', error.message))
+            updateProfile(payload)
+            navigate('/')
         }
     }
 
@@ -65,4 +57,6 @@ const PageUserProfile = () => {
     )
 }
 
-export default PageUserProfile
+export default connect(mapStateToProps, { getProfile, updateProfile })(
+    PageUserProfile,
+)
