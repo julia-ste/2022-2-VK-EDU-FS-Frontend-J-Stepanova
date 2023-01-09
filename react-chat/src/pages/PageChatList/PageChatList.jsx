@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import chatList from 'assets/chatList.json'
+import axios from 'api/axios'
 import { Page } from 'common/constants'
 import Chat from 'components/Chat'
 import CreateButton from 'components/CreateButton'
@@ -11,21 +11,28 @@ import styles from './PageChatList.module.scss'
 
 
 const PageChatList = () => {
-    const [chats] = useState(chatList)
+    const [chats, setChats] = useState([])
     const navigate = useNavigate()
+
+    useEffect(() => {
+        axios
+            .get('/chats/')
+            .then(response => setChats(response.data))
+            .catch(error => console.log('Error:', error.message))
+    }, [])
 
     return (
         <>
             <HeaderWrapper page={Page.ChatList} />
 
             <div className={styles.bodyContainer}>
-                {chats.map(({ id, title, imgSrc, unreadCount, lastMsg }) => (
+                {chats.map(({ id, title, image, lastMessage }) => (
                     <Chat
                         key={id}
                         title={title}
-                        imgSrc={imgSrc}
-                        unreadCount={unreadCount}
-                        lastMsg={lastMsg}
+                        imgSrc={image}
+                        unreadCount={0}
+                        lastMsg={lastMessage}
                         onClick={() => navigate(`/chat/${id}`)}
                     />
                 ))}

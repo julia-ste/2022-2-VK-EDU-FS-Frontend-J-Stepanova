@@ -1,37 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import userProfile from 'assets/userProfile.json'
+import axios from 'api/axios'
 import { Page } from 'common/constants'
 import HeaderWrapper from 'components/HeaderWrapper'
 import ProfileForm from 'components/ProfileForm'
-import { useLocalStorage } from 'hooks/useLocalStorage'
 
 import styles from './PageUserProfile.module.scss'
 
 
 const PageUserProfile = () => {
-    const [profile, setProfile] = useLocalStorage('profile', userProfile)
+    const USER_ID = 3
+    const [loading, setLoading] = useState(true)
+    const [profile, setProfile] = useState({})
     const [submitRequested, setSubmitRequested] = useState(false)
-    const [saved, setSaved] = useState(false)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        axios
+            .get(`/users/${USER_ID}/`)
+            .then(response =>
+                setLoading(() => {
+                    setProfile(response.data)
+                    return false
+                }),
+            )
+            .catch(error => console.log('Error:', error.message))
+    }, [])
 
     const handleSubmit = ({ hasErrors, payload }) => {
         if (hasErrors) {
             setSubmitRequested(false)
         } else {
-            setSaved(() => {
-                setProfile({ ...payload })
-                return true
-            })
+            axios
+                .put(`/users/${USER_ID}/`, payload)
+                .then(() => navigate('/'))
+                .catch(error => console.log('Error:', error.message))
         }
     }
-
-    useEffect(() => {
-        if (saved) {
-            navigate('/')
-        }
-    })
 
     return (
         <>
@@ -42,14 +48,16 @@ const PageUserProfile = () => {
 
             <div className={styles.bodyContainer}>
                 <div className={styles.form}>
-                    <ProfileForm
-                        fullName={profile.fullName}
-                        username={profile.username}
-                        bio={profile.bio}
-                        imgSrc={profile.imgSrc}
-                        submitRequested={submitRequested}
-                        onSubmit={handleSubmit}
-                    />
+                    {!loading && (
+                        <ProfileForm
+                            fullname={profile.fullname}
+                            username={profile.username}
+                            bio={profile.bio}
+                            imgSrc={profile.image}
+                            submitRequested={submitRequested}
+                            onSubmit={handleSubmit}
+                        />
+                    )}
                 </div>
             </div>
         </>

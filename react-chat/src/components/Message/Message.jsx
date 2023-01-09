@@ -9,9 +9,10 @@ import styles from './Message.module.scss'
 
 const cx = classNames.bind(styles)
 
-const Message = ({ isFromMe, text, timestamp, attachments }) => (
+const Message = ({ isFromMe, author, text, timestamp, attachments }) => (
     <div className={cx('bubble', { left: !isFromMe }, { right: isFromMe })}>
         <div className={styles.content}>
+            {author && <div className={styles.author}>{author}</div>}
             <div className={styles.text}>{text}</div>
             <div className={styles.media}>
                 {attachments.map(({ id, src }) => (
