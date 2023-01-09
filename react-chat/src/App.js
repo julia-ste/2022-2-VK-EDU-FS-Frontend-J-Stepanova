@@ -1,6 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import {
+    Navigate,
     Route,
     RouterProvider,
     createHashRouter,
@@ -28,6 +29,7 @@ const router = createHashRouter(
                 <Route path="/" element={<PageChatList />} />
                 <Route path="/chat/:id" element={<PageChat />} />
                 <Route path="/profile" element={<PageUserProfile />} />
+                <Route path="*" element={<Navigate to="/" />} />
             </Route>
             <Route path="/login" element={<PageLogin />} />
         </>,
