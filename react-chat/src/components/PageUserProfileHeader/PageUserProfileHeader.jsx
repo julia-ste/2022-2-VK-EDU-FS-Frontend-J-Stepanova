@@ -12,7 +12,7 @@ const PageUserProfileHeader = ({ setUpdateProfileRequested }) => {
     const navigate = useNavigate()
 
     return (
-        <>
+        <div className={styles.header}>
             <button className={styles.button} onClick={() => navigate('/')}>
                 <ArrowBack className={styles.icon} />
             </button>
@@ -23,7 +23,7 @@ const PageUserProfileHeader = ({ setUpdateProfileRequested }) => {
             >
                 <Done className={styles.icon} />
             </button>
-        </>
+        </div>
     )
 }
 

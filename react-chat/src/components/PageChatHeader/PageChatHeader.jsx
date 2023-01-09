@@ -10,7 +10,7 @@ const PageChatHeader = ({ title, subtitle, imgSrc }) => {
     const navigate = useNavigate()
 
     return (
-        <>
+        <div className={styles.header}>
             <button className={styles.button} onClick={() => navigate('/')}>
                 <ArrowBack className={styles.icon} />
             </button>
@@ -33,7 +33,7 @@ const PageChatHeader = ({ title, subtitle, imgSrc }) => {
                     <MoreVert className={styles.icon} />
                 </button>
             </div>
-        </>
+        </div>
     )
 }
 
