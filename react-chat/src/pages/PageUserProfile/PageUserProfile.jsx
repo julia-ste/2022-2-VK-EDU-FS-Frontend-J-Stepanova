@@ -10,7 +10,7 @@ import styles from './PageUserProfile.module.scss'
 
 
 const PageUserProfile = () => {
-    const USER_ID = 3
+    const userId = localStorage.getItem('userId') ?? 3
     const [loading, setLoading] = useState(true)
     const [profile, setProfile] = useState({})
     const [submitRequested, setSubmitRequested] = useState(false)
@@ -18,7 +18,7 @@ const PageUserProfile = () => {
 
     useEffect(() => {
         axios
-            .get(`/users/${USER_ID}/`)
+            .get(`/users/${userId}/`)
             .then(response =>
                 setLoading(() => {
                     setProfile(response.data)
@@ -33,7 +33,7 @@ const PageUserProfile = () => {
             setSubmitRequested(false)
         } else {
             axios
-                .put(`/users/${USER_ID}/`, payload)
+                .put(`/users/${userId}/`, payload)
                 .then(() => navigate('/'))
                 .catch(error => console.log('Error:', error.message))
         }
