@@ -13,7 +13,7 @@ import styles from './PageChat.module.scss'
 
 
 const PageChat = () => {
-    const userId = localStorage.getItem('userId') ?? 3
+    const userId = JSON.parse(localStorage.getItem('userId')) || 3
     const { id } = useParams()
     const [chat, setChat] = useState({})
     const [messages, setMessages] = useState([])

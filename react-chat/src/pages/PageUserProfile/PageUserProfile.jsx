@@ -10,7 +10,7 @@ import styles from './PageUserProfile.module.scss'
 
 
 const PageUserProfile = () => {
-    const userId = localStorage.getItem('userId') ?? 3
+    const userId = JSON.parse(localStorage.getItem('userId')) || 3
     const [loading, setLoading] = useState(true)
     const [profile, setProfile] = useState({})
     const [submitRequested, setSubmitRequested] = useState(false)
