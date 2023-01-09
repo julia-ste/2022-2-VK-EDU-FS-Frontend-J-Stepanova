@@ -26,6 +26,7 @@ const PageUserProfile = () => {
                 }),
             )
             .catch(error => console.log('Error:', error.message))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleSubmit = ({ hasErrors, payload }) => {

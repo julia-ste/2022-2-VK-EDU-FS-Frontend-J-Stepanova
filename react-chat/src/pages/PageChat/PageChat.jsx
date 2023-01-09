@@ -35,6 +35,7 @@ const PageChat = () => {
         return () => {
             if (centrifugeIsConnected) unsubscribe(channelKey)
         }
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
@@ -47,7 +48,7 @@ const PageChat = () => {
         if (centrifugeIsConnected) {
             subscribe(channelKey, onPublication)
         }
-    }, [centrifugeIsConnected])
+    }, [centrifugeIsConnected, userId, channelKey, subscribe])
 
     useEffect(() => {
         const scrollToBottom = () => {
