@@ -1,5 +1,6 @@
 import axios from 'api/axios'
 import {
+    ADD_MESSAGE,
     GET_CHAT_DETAIL_FAILURE,
     GET_CHAT_DETAIL_REQUEST,
     GET_CHAT_DETAIL_SUCCESS,
@@ -81,7 +82,10 @@ export const sendMessage = (chatId, text) => {
 
 export const addMessage = newMessage => {
     return dispatch => {
-        dispatch(addMessage(newMessage))
+        dispatch({
+            type: ADD_MESSAGE,
+            payload: newMessage,
+        })
     }
 }
 
