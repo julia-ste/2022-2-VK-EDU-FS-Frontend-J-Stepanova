@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { getProfile, updateProfile } from 'actions/profile'
+import { getProfile } from 'actions/profile'
 import HeaderWrapper from 'components/HeaderWrapper'
 import ProfileForm from 'components/ProfileForm'
 import { Page } from 'constants/Pages'
@@ -15,29 +15,18 @@ const mapStateToProps = state => ({
     profile: state.profile.profile,
 })
 
-const PageUserProfile = ({ loading, profile, getProfile, updateProfile }) => {
-    const [submitRequested, setSubmitRequested] = useState(false)
+const PageUserProfile = ({ loading, profile, getProfile }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
         getProfile()
-    }, [])
+    }, [getProfile])
 
-    const handleSubmit = ({ hasErrors, payload }) => {
-        if (hasErrors) {
-            setSubmitRequested(false)
-        } else {
-            updateProfile(payload)
-            navigate('/')
-        }
-    }
+    const handleSubmit = () => navigate('/')
 
     return (
         <>
-            <HeaderWrapper
-                page={Page.UserProfile}
-                onDoneClick={() => setSubmitRequested(true)}
-            />
+            <HeaderWrapper page={Page.UserProfile} />
 
             <div className={styles.bodyContainer}>
                 <div className={styles.form}>
@@ -47,7 +36,6 @@ const PageUserProfile = ({ loading, profile, getProfile, updateProfile }) => {
                             username={profile.username}
                             bio={profile.bio}
                             imgSrc={profile.image}
-                            submitRequested={submitRequested}
                             onSubmit={handleSubmit}
                         />
                     )}
@@ -57,6 +45,4 @@ const PageUserProfile = ({ loading, profile, getProfile, updateProfile }) => {
     )
 }
 
-export default connect(mapStateToProps, { getProfile, updateProfile })(
-    PageUserProfile,
-)
+export default connect(mapStateToProps, { getProfile })(PageUserProfile)

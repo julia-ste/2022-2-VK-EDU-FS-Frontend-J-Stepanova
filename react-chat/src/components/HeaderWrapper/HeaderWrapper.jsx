@@ -12,7 +12,7 @@ const HeaderWrapper = ({ page, ...pageProps }) => (
     <header className={styles.header}>
         {page === Page.ChatList && <PageChatListHeader />}
         {page === Page.Chat && <PageChatHeader {...pageProps} />}
-        {page === Page.UserProfile && <PageUserProfileHeader {...pageProps} />}
+        {page === Page.UserProfile && <PageUserProfileHeader />}
     </header>
 )
 

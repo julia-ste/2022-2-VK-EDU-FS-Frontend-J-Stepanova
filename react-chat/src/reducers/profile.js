@@ -4,12 +4,14 @@ import {
     GET_PROFILE_SUCCESS,
     UPDATE_PROFILE_FAILURE,
     UPDATE_PROFILE_REQUEST,
+    UPDATE_PROFILE_REQUESTED,
     UPDATE_PROFILE_SUCCESS,
 } from 'constants/ProfileActionTypes'
 
 const initialState = {
     loading: false,
     updating: false,
+    updateRequested: false,
     profile: {},
     error: '',
 }
@@ -33,6 +35,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: action.payload,
+            }
+        case UPDATE_PROFILE_REQUESTED:
+            return {
+                ...state,
+                updateRequested: action.payload,
             }
         case UPDATE_PROFILE_REQUEST:
             return {

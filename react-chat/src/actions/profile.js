@@ -5,6 +5,7 @@ import {
     GET_PROFILE_SUCCESS,
     UPDATE_PROFILE_FAILURE,
     UPDATE_PROFILE_REQUEST,
+    UPDATE_PROFILE_REQUESTED,
     UPDATE_PROFILE_SUCCESS,
 } from 'constants/ProfileActionTypes'
 
@@ -32,6 +33,17 @@ export const getProfile = () => {
             .get(`/users/${id}/`)
             .then(response => dispatch(getProfileSuccess(response.data)))
             .catch(error => dispatch(getProfileFailure(error)))
+    }
+}
+
+const updateProfileRequested = flag => ({
+    type: UPDATE_PROFILE_REQUESTED,
+    payload: flag,
+})
+
+export const setUpdateProfileRequested = flag => {
+    return dispatch => {
+        dispatch(updateProfileRequested(flag))
     }
 }
 
