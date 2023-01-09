@@ -21,7 +21,7 @@ const PageLogin = ({ token, loginGoogle, checkAuthorized }) => {
         } else {
             checkAuthorized()
         }
-    }, [token])
+    }, [token, navigate, checkAuthorized])
 
     const handleClick = useGoogleLogin({
         onSuccess: response => loginGoogle(response.access_token),
