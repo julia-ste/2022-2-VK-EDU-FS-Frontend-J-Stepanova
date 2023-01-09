@@ -20,7 +20,7 @@ const PageChatList = ({ chats, getChats }) => {
 
     useEffect(() => {
         getChats()
-    }, [])
+    }, [getChats])
 
     return (
         <>
