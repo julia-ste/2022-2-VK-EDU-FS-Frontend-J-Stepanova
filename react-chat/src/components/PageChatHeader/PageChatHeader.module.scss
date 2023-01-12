@@ -1,6 +1,10 @@
 @import '../../common/styles/mixins.module';
 @import '../../common/styles/vars.module';
 
+.header {
+    @include flexRowSettings($justifyContent: space-between);
+}
+
 .actions {
     @include flexRowSettings($justifyContent: flex-end);
 }

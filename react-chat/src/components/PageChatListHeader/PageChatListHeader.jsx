@@ -10,7 +10,7 @@ const PageChatListHeader = () => {
     const navigate = useNavigate()
 
     return (
-        <>
+        <div className={styles.header}>
             <button
                 className={styles.button}
                 onClick={() => navigate('/profile')}
@@ -21,7 +21,7 @@ const PageChatListHeader = () => {
             <button className={styles.button}>
                 <Search className={styles.icon} />
             </button>
-        </>
+        </div>
     )
 }
 

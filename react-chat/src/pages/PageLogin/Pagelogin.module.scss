@@ -1,0 +1,69 @@
+@import '../../common/styles/mixins.module';
+@import '../../common/styles/vars.module';
+
+.bodyContainer {
+    display: grid;
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: $themeColor;
+}
+
+.centerContainer {
+    @include flexColumnSettings(30px);
+    align-self: center;
+    justify-self: center;
+}
+
+.title {
+    font-size: $loginHeaderFontSize;
+    color: $primaryColor;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.button {
+    @include flexRowSettings;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: $primaryColor;
+    font-weight: bold;
+    background-color: $googleButtonBackgroundColor;
+
+    &:hover .left {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &:hover .right {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    &:active .left {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &:active .right {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.left {
+    width: 50px;
+    background-color: $googleIconBackgroundColor;
+    font-size: $googleIconFontSize;
+    transition: all 0.3s;
+}
+
+.right {
+    flex: 1;
+    padding: 0 8px;
+    font-size: $googleButtonFontSize;
+    transition: all 0.3s;
+}

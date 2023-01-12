@@ -2,7 +2,19 @@
 @import '../../common/styles/vars.module';
 
 .header {
-    @include flexRowSettings($justifyContent: space-between);
+    @include flexRowSettings();
     height: $headerHeight;
     background-color: $headerBackgroundColor;
+}
+
+.content {
+    flex: 1;
+}
+
+.button {
+    @include headerButton;
+}
+
+.icon {
+    @include icon;
 }
