@@ -4,3 +4,7 @@ export function getTime(timestamp) {
         minute: '2-digit',
     })
 }
+
+export function getCurrentDateTime() {
+    return new Date().toISOString()
+}

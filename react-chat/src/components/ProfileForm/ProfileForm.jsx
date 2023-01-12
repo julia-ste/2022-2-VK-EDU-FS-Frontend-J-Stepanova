@@ -8,7 +8,7 @@ import styles from './ProfileForm.module.scss'
 
 
 const ProfileForm = ({
-    fullName,
+    fullname,
     username,
     bio,
     imgSrc,
@@ -16,9 +16,9 @@ const ProfileForm = ({
     onSubmit,
 }) => {
     const { values, errors, onChange, onBlur, isFormValid } = useForm({
-        initialState: { fullName, username, bio },
+        initialState: { fullname, username, bio },
         rules: {
-            fullName: { isReq: true, max: 128 },
+            fullname: { isReq: true, max: 128 },
             username: { isReq: true, min: 5, max: 15 },
             bio: { max: 128 },
         },
@@ -41,10 +41,9 @@ const ProfileForm = ({
             onSubmit({
                 hasErrors: !isFormValid(),
                 payload: {
-                    ...values,
-                    fullName: values.fullName.trim(),
+                    username: values.username.trim(),
+                    fullname: values.fullname.trim(),
                     bio: values.bio.trim(),
-                    imgSrc,
                 },
             })
         }
@@ -60,12 +59,12 @@ const ProfileForm = ({
                 />
             </div>
             <ProfileFormInputField
-                name="fullName"
-                value={values.fullName}
+                name="fullname"
+                value={values.fullname}
                 label="Full name"
                 onChange={onChange}
                 onBlur={onBlur}
-                errorMsg={errors.fullName}
+                errorMsg={errors.fullname}
             />
             <ProfileFormInputField
                 name="username"
