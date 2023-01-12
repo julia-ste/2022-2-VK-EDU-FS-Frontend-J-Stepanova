@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/css/main.9678ad8e.css",
-    "main.js": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/js/main.0bc42c28.js",
+    "main.css": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/css/main.a610948f.css",
+    "main.js": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/js/main.6f5dd480.js",
     "static/js/787.890e5f70.chunk.js": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/js/787.890e5f70.chunk.js",
     "index.html": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/index.html",
-    "main.9678ad8e.css.map": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/css/main.9678ad8e.css.map",
-    "main.0bc42c28.js.map": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/js/main.0bc42c28.js.map",
+    "main.a610948f.css.map": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/css/main.a610948f.css.map",
+    "main.6f5dd480.js.map": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/js/main.6f5dd480.js.map",
     "787.890e5f70.chunk.js.map": "/2022-2-VK-EDU-FS-Frontend-J-Stepanova/static/js/787.890e5f70.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9678ad8e.css",
-    "static/js/main.0bc42c28.js"
+    "static/css/main.a610948f.css",
+    "static/js/main.6f5dd480.js"
   ]
 }
